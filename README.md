@@ -10,6 +10,14 @@ Implement a REST service which validates a credit card number from a common cred
 #### Task acceptance criteria
 - Request contains only two parameters: card vendor and card number
 - First version should support MasterCard and Visa
+
+## Instructions for candidates
+- once link to recruitment task branch is received, fork this branch to your own, public github repository, so that recruiters will be able to review task solution
+- create a pull request in your repository
+- add pull request comments in places you find appropriate 
+- also respond to production readiness aspects (resiliency, security, etc.) in a summarizing comment
+
 ## Review acceptance criteria
-- review has a from of GitHub pull request comments 
+- code review has a form of GitHub pull request comments 
 - comments are in English
+- code review was finished within a week (168 hours), counting from the moment, when link to recruitment task branch was received
