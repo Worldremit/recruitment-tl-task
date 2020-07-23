@@ -16,7 +16,7 @@ Implement a REST service which validates a credit card number from a common cred
 - create a pull request in your repository
 - add pull request comments in places you find appropriate 
 - also respond to production readiness aspects (resiliency, security, etc.) in a summarizing comment
-- make repository public, so that recruiters will be able to review task solution
+- make repository public, so that recruiters will be able to review task solution - [how to make a repository public](https://docs.github.com/en/github/administering-a-repository/setting-repository-visibility#making-a-repository-public)
 
 ## Review acceptance criteria
 - code review has a form of GitHub pull request comments 
