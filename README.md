@@ -12,10 +12,11 @@ Implement a REST service which validates a credit card number from a common cred
 - First version should support MasterCard and Visa
 
 ## Instructions for candidates
-- once link to recruitment task branch is received, fork this branch to your own, public github repository, so that recruiters will be able to review task solution
+- once link to recruitment task branch is received, import repository to your Github account - [how-to](https://docs.github.com/en/github/importing-your-projects-to-github/importing-a-repository-with-github-importer). Make it private at this stage. You could also choose a different name to protect it from eavesdropping.
 - create a pull request in your repository
 - add pull request comments in places you find appropriate 
 - also respond to production readiness aspects (resiliency, security, etc.) in a summarizing comment
+- make repository public, so that recruiters will be able to review task solution
 
 ## Review acceptance criteria
 - code review has a form of GitHub pull request comments 
