@@ -1,6 +1,8 @@
 package validator;
+//the tests should be under it's own package src/test
 
 import static org.junit.Assert.*;
+//adding build tool to the project will allow us to build the project without adding libraries to the classpath manually
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+//the tests should b e written per Class and test the busines logic inside the tested class (subject under testing)
 public class Tests {
 	private static CreditCardVendorsReader reader = new CreditCardVendorsReader();
 	private static ArrayList<CreditCardVendor> vendors = reader.returnVendorArray();

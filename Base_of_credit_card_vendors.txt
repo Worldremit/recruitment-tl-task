@@ -1,2 +1,4 @@
 Visa 13/16 4 
 MasterCard 16 2221-2720/51-55 
+
+such business rules should not be stored in a separate file. Rather should be represented as a part of a domain

@@ -1,0 +1,31 @@
+General comments:
+- build tool is missing, it might be either Maven or Gradle. It will allow us to manage the dependencies,
+control the version of the app, possibility to build project, run the tests, etc
+- the package path (group id) should present the organization name (i.e. com.google) and the project name should be also added as artefactId
+- also the separation of packages required (src/main - for business code, src/test - for tests
+- the project is not implementing the REST at all, in order to achieve that we do need to use the web framework which will
+allow us to run our application on the application server - the nice option is Spring. It has quite a lot of tools for that (mvc, security, persistance, cloud, etc.)
+- when it comes to prod readiness - i see that the application should be deployed into the cloud platform (aws, gc, azure, etc).
+this will allow us to scale application in cases of high load and to easily controll the application itself
+- Log aggregation service should be used, in order to have ability to search through the logs (possibly from different instances of the app). Most popular tool for this is ELK
+- Card detaisl in the Logs should be masked (also these detals shoud not be stored in the application)
+- thinking of situation that it might be possible to have a few instances of our application (app will be scaled) the configuration
+should be stored in the `single point of truth` place, (consul, configMap, etc)
+- tests should cover the end to end flow (API tests with real data)
+- resilience should be checked with code tests, load testing and possibly chaos testing (chaos monkey)
+
+
+- data about card vendors should be stored in application config (to be stored as a list), which will allow us to store the different vendor list per environment
+plus will give us quite simple ability to add new vendor, which will be applied after application restart. I wouldn't expect that data about the vendors will change often.
+
+
+- circuit breaker pattern might be used in case there is a risk of DDOS attacks
+- resiliency for high load
+
+
+
+Sum up. I've tried to cover preetty much everything, but unfortunately I cannot tell that 100% is covered. In current example
+it's harder to change current state to the desired form, than implementing requirements from the scratch.
+I've spent around few hours commenting that, I guess it's possible to spent 2 hours more =) and find even more thing to fix and to improve. \
+
+It's always nice to discuss such things with developers, and understand the idea behind some decisions (tech or business)

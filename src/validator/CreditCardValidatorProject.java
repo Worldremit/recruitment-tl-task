@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class CreditCardValidatorProject {
+public class CreditCardValidatorProject { // probably this class is not required for us. it will be redundand. as all operations will be done via REST
 	
 	private static CreditCardVendorsReader reader = new CreditCardVendorsReader();
 	private static ArrayList<CreditCardVendor> vendors = reader.returnVendorArray();

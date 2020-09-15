@@ -21,3 +21,11 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+
+#the folder with IDE settings should be rather exluded from the git
+/.settings/
+/.classpath
+/.project
+
+#should contain all IDE related files and configs
