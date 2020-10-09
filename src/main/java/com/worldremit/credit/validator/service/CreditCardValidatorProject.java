@@ -1,4 +1,4 @@
-package validator;
+package com.worldremit.credit.validator.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;

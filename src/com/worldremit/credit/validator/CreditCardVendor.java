@@ -1,4 +1,4 @@
-package validator;
+package com.worldremit.validator;
 
 import java.util.ArrayList;
 
