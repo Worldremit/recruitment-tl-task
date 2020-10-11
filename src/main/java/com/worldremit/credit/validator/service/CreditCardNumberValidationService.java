@@ -1,4 +1,7 @@
 package com.worldremit.credit.validator.service;
 
-public class CreditCardNumberValidationService {
+import com.worldremit.credit.validator.model.CreditCardNumber;
+
+public interface CreditCardNumberValidationService {
+    boolean validate(CreditCardNumber number);
 }

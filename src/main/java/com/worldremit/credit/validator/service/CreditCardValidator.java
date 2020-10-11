@@ -1,62 +1,46 @@
 package com.worldremit.credit.validator.service;
 
-import java.util.ArrayList;
+import com.worldremit.credit.validator.model.CreditCardVendor;
+import com.worldremit.credit.validator.model.IssuerIdentificationNumber;
 
-public class CreditCardValidator implements CreditCardChecking {
+import java.util.List;
+import java.util.stream.IntStream;
 
-	@Override
-	public boolean checkValidity(CreditCardVendor ccv, String number) {
-		ArrayList<Integer> chars = ccv.getNumberOfChars();
-		ArrayList<String> masks = ccv.getIIN();
-		
-		boolean result1 = checkLengthCorrectness(number, chars);
-		boolean result2 = checkIINMaskCorrectness (number, masks);
-		boolean result3 = checkLuhnalgorithmCorrectness(number);
-		
-		return result1 && result2 && result3;
-	}
-	
-	private boolean checkLengthCorrectness(String number, ArrayList<Integer> chars){
-		boolean result = false;
-		for (int i = 0; i<chars.size();i++){
-			if (chars.get(i) == number.length())
-				result = true;
-		}
-		return result;
-	}
-	
-	private boolean checkIINMaskCorrectness (String number, ArrayList<String> masks){
-		boolean result = false;
-		for (int i = 0; i<masks.size();i++){
-			if (number.startsWith(masks.get(i)))
-				result = true;
-		}
-		return result;
-	}
-	
-	private boolean checkLuhnalgorithmCorrectness(String number){
-		boolean result = false;
-		
-		String[] characters = number.split("");
-		int[] intCharsReverse = new int[characters.length];
-		int sum = 0;
-		
-		for(int i = 0;i<characters.length;i++){
-			intCharsReverse[characters.length-1-i] = Integer.parseInt(characters[i]);
-		}
-		
-		for(int i = 0;i<intCharsReverse.length;i++){
-			intCharsReverse[i] = (i%2==1) ? 2*intCharsReverse[i] : intCharsReverse[i];
-		}
-		
-		for(int i = 0;i<intCharsReverse.length;i++){
-			sum += (intCharsReverse[i]<10) ? intCharsReverse[i] : (intCharsReverse[i]%10 + intCharsReverse[i]/10);
-		}
-		
-		if(sum%10==0)
-			result = true;
-		
-		return result;
-	}
+public class CreditCardValidator {
+
+    public static boolean checkValidity(CreditCardVendor vendor, String number) {
+        List<Integer> chars = vendor.getLengths();
+        List<IssuerIdentificationNumber> masks = vendor.getIins();
+
+        boolean isLengthValid = isLengthValid(number, chars);
+        boolean isIinValid = isIinValid(number, masks);
+        boolean isLuhnAlgorithmValid = isLuhnAlgorithmValid(number);
+
+        return isLengthValid && isIinValid && isLuhnAlgorithmValid;
+    }
+
+    private static boolean isLengthValid(String number, List<Integer> chars) {
+        Integer numberLength = number.length();
+        return chars.stream().anyMatch(i -> i.equals(numberLength));
+    }
+
+    private static boolean isIinValid(String number, List<IssuerIdentificationNumber> iins) {
+        return iins.stream().anyMatch(iin -> iin.isValidNumber(number));
+    }
+
+    private static boolean isLuhnAlgorithmValid(String number) {
+        int length = number.length();
+
+
+        int[] reversed = IntStream.range(0, length).map(i -> Character.digit(number.charAt(length - i - 1), 10)).toArray();
+
+        long sum = IntStream.range(0, length)
+                .map(i -> i % 2 == 1 ? reversed[i] * 2 : reversed[i])
+                .map(i -> i > 9 ? i - 9 : i)
+                .sum();
+
+        return sum % 10 == 0;
+
+    }
 
 }

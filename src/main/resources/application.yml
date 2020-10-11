@@ -1,0 +1,30 @@
+vendors:
+  -
+    name: Visa
+    lengths:
+      - 13
+      - 16
+    iins:
+      -
+        start: 4
+
+
+  -
+    name: MasterCard
+    lengths:
+        - 16
+    iins:
+      -
+        start: 2221
+        end: 2720
+      -
+        start: 51
+        end: 55
+
+
+
+
+
+
+
+

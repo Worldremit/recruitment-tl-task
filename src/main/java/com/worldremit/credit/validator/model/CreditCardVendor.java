@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CreditCardVendor2 {
+public class CreditCardVendor {
     private String name;
     private List<Integer> lengths;
     private List<IssuerIdentificationNumber> iins;

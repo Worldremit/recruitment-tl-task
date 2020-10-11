@@ -19,6 +19,6 @@ Implement a REST service which validates a credit card number from a common cred
 - make repository public, so that recruiters will be able to review task solution
 
 ## Review acceptance criteria
-- code review has a form of GitHub pull request comments 
+- code review has a form of GitHub pull request comments
 - comments are in English
 - code review was finished within a week (168 hours), counting from the moment, when link to recruitment task branch was received
